@@ -140,7 +140,7 @@ export default function Home() {
               {/* Right side - Interactive Photo - Closer to text */}
               <div className="lg:col-span-5 flex justify-center lg:justify-end">
                 <InteractivePhoto
-                  src="/images/profile.jpg"
+                  src="https://drive.google.com/uc?export=view&id=1NDvB_Q63P72CgQOwhgiS5W_ncq7fJYVr"
                   alt="Photo de profil"
                 />
               </div>

@@ -56,7 +56,7 @@ export default function AboutPage() {
               {/* Left side - Profile Image */}
               <div className="flex justify-center lg:justify-start">
                 <InteractivePhoto
-                  src="/images/profile.jpg"
+                  src="https://drive.google.com/uc?export=view&id=1NDvB_Q63P72CgQOwhgiS5W_ncq7fJYVr"
                   alt="Photo de profil"
                   size="large"
                 />
