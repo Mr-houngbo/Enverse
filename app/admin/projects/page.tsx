@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from 'react';
-import { AdminPostForm } from '@/components/admin/admin-post-form';
+import { AdminProjectForm } from '@/components/admin/admin-project-form';
 import { AdminNavbar } from '@/components/admin/admin-navbar';
 
 const ADMIN_PASSWORD = '@enverse2025'; // You should change this to a secure password
 
-export default function AdminPage() {
+export default function AdminProjectsPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -32,10 +32,10 @@ export default function AdminPage() {
         <div className="max-w-md w-full space-y-8">
           <div className="text-center">
             <h1 className="text-3xl font-bold text-orange-900 dark:text-orange-100 mb-2">
-              Accès Administration
+              Accès Administration Projets
             </h1>
             <p className="text-orange-700 dark:text-orange-300">
-              Entrez le mot de passe pour accéder à la page de publication
+              Entrez le mot de passe pour accéder à la page de publication des projets
             </p>
           </div>
 
@@ -81,14 +81,14 @@ export default function AdminPage() {
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
             <h1 className="text-4xl font-bold text-orange-900 dark:text-orange-100 mb-2">
-              Publier un nouvel article
+              Publier un nouveau projet
             </h1>
             <p className="text-orange-700 dark:text-orange-300">
-              Créez et publiez vos articles avec du texte enrichi, des images et des vidéos
+              Ajoutez vos projets avec des descriptions détaillées, des images et des liens
             </p>
           </div>
 
-          <AdminPostForm />
+          <AdminProjectForm />
         </div>
       </div>
     </div>

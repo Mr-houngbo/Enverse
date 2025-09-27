@@ -10,7 +10,6 @@ import { ConsoleIntro } from '@/components/console-intro';
 import { InteractivePhoto } from '@/components/interactive-photo';
 import { InteractiveCards } from '@/components/interactive-cards';
 import { AfricaMap } from '@/components/africa-map';
-import { ThemeDebug } from '@/components/theme-debug';
 
 interface Post {
   slug: string;
@@ -61,7 +60,10 @@ export default function Home() {
 
         if (projectsRes.ok) {
           const projects = await projectsRes.json();
-          setFeaturedProjects(projects);
+          console.log('Projects loaded:', projects.length); // Debug log
+          setFeaturedProjects(projects.filter((project: any) => project.featured));
+        } else {
+          console.error('Failed to fetch projects:', projectsRes.status); // Debug log
         }
       } catch (error) {
         console.error('Failed to fetch data:', error);
@@ -83,9 +85,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-gray-50 dark:from-black dark:via-gray-900 dark:to-black relative">
-      {/* Theme Debug */}
-      <ThemeDebug />
-
       {/* Africa Map Background */}
       <AfricaMap />
 
@@ -112,26 +111,23 @@ export default function Home() {
         {/* Hero Section */}
         <section className="w-full py-20 px-4 sm:px-6 lg:px-8 min-h-[80vh] flex items-center">
           <div className="max-w-7xl mx-auto w-full">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               {/* Left side - Text content */}
-              <div 
-                className="space-y-8"
-              >
+              <div className="lg:col-span-7 space-y-8">
                 <div className="space-y-2">
                   <div className="inline-flex items-center px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 mb-4">
-                    <span className="text-orange-300 text-sm font-medium">✨ Bienvenue dans mon univers</span>
+                    <span className="text-orange-300 text-sm font-medium">✨ Bienvenue sur mon univers , Créatif & Technologique </span>
                   </div>
                   
                   <h1 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-orange-600 to-orange-500 dark:from-white dark:via-orange-100 dark:to-orange-300 leading-tight">
-                    Bienvenue sur mon
-                    <span className="block text-orange-400 drop-shadow-lg"> blog</span>
+                    Enverse
                   </h1>
                 </div>
                 
                 <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed font-light">
-                  Explorez mes réflexions sur l'IA, la data science et mes projets. 
-                  <span className="block mt-2 text-orange-500 dark:text-orange-300/80">
-                    Un espace pour partager des idées et construire ensemble l'avenir technologique.
+                  Explorez mes réflexions et projets autour de l'<span className="text-orange-500 dark:text-orange-300 font-semibold">IA</span> et de la <span className="text-orange-500 dark:text-orange-300 font-semibold">data science</span> jusqu'aux horizons philosophiques.
+                  <span className="block mt-4 text-orange-400 dark:text-orange-300/80 font-medium">
+                    Un ouvert pour explorer, rêver et tordre l'avenir à notre image.
                   </span>
                 </p>
 
@@ -141,10 +137,8 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Right side - Interactive Photo */}
-              <div 
-                className="flex justify-center lg:justify-end"
-              >
+              {/* Right side - Interactive Photo - Closer to text */}
+              <div className="lg:col-span-5 flex justify-center lg:justify-end">
                 <InteractivePhoto
                   src="/images/profile.jpg"
                   alt="Photo de profil"

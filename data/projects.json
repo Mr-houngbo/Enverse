@@ -1,0 +1,62 @@
+[
+  {
+    "id": "ai-chatbot",
+    "title": "Chatbot IA Avancé",
+    "description": "Un chatbot intelligent utilisant les dernières technologies d'IA pour comprendre et répondre aux requêtes complexes.",
+    "tags": [
+      "IA",
+      "Python",
+      "OpenAI",
+      "FastAPI"
+    ],
+    "image": "/images/project-placeholder.svg",
+    "githubUrl": "https://github.com/Mr-houngbo/ai-chatbot",
+    "demoUrl": "https://demo-chatbot.vercel.app",
+    "featured": true
+  },
+  {
+    "id": "data-viz-dashboard",
+    "title": "Dashboard de Visualisation de Données",
+    "description": "Un tableau de bord interactif pour visualiser et analyser des datasets complexes avec des graphiques dynamiques.",
+    "tags": [
+      "Data Science",
+      "React",
+      "D3.js",
+      "Python"
+    ],
+    "image": "/images/project-placeholder.svg",
+    "githubUrl": "https://github.com/Mr-houngbo/data-dashboard",
+    "demoUrl": "https://data-dashboard.vercel.app",
+    "featured": true
+  },
+  {
+    "id": "ml-prediction-api",
+    "title": "API de Prédiction ML",
+    "description": "Une API RESTful pour servir des modèles de machine learning en production avec FastAPI et Docker.",
+    "tags": [
+      "Machine Learning",
+      "FastAPI",
+      "Docker",
+      "MLOps"
+    ],
+    "image": "/images/project-placeholder.svg",
+    "githubUrl": "https://github.com/Mr-houngbo/ml-api",
+    "featured": false
+  },
+  {
+    "id": "001-2025",
+    "title": "Projet Respire - Hackathon IoT",
+    "description": "Projet de mesure de la qualite de l'air en milieu scolaire au Sénégal initié par KaiKai et regroupant les jeunes passionnés du pays autour de cette prerogative commune",
+    "tags": [
+      "IA",
+      "Streamlit",
+      "IoT",
+      "API"
+    ],
+    "image": "https://drive.google.com/uc?export=view&id=1BVV7iIp0Y0qfBIrrzxR80C3aLA_MRRFA",
+    "githubUrl": "https://github.com/Mr-houngbo/respire",
+    "demoUrl": "https://respire-v2.streamlit.app",
+    "videoUrl": "https://youtu.be/uFWevfWJYqc",
+    "featured": true
+  }
+]

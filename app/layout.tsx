@@ -8,7 +8,7 @@ import { Footer } from '@/components/layout/footer';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://enverse-blog.vercel.app'), // Remplacez par votre domaine réel lors du déploiement
+  metadataBase: new URL('https://enverse.vercel.app'), // Remplacez par votre domaine réel lors du déploiement
   title: 'Enverse | Blog Personnel - IA, Data Science & Réflexions',
   description: 'Articles sur l\'IA, la data science, mes projets et réflexions personnelles',
   keywords: 'blog, IA, intelligence artificielle, data science, projets, réflexions',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    url: 'https://votre-domaine.com',
+    url: 'https://enverse.vercel.app',
     title: 'Enverse - Blog Personnel',
     description: 'Articles sur l\'IA, la data science et mes réflexions personnelles',
     siteName: 'Enverse',

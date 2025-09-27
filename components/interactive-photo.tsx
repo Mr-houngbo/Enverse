@@ -4,9 +4,10 @@ import Image from 'next/image';
 interface InteractivePhotoProps {
   src: string;
   alt: string;
+  size?: 'default' | 'large';
 }
 
-export function InteractivePhoto({ src, alt }: InteractivePhotoProps) {
+export function InteractivePhoto({ src, alt, size = 'default' }: InteractivePhotoProps) {
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -44,44 +45,46 @@ export function InteractivePhoto({ src, alt }: InteractivePhotoProps) {
     <div className="relative group">
       <div
         ref={cardRef}
-        className="relative w-40 h-40 mx-auto transition-transform duration-200 ease-out preserve-3d"
+        className={`relative mx-auto transition-transform duration-200 ease-out ${
+          size === 'large' ? 'w-[36rem] h-80' : 'w-[28rem] h-64'
+        }`}
+        style={{ transformStyle: 'preserve-3d' }}
       >
-        {/* Animated ring */}
-        <div className="absolute inset-0 rounded-full border-4 border-orange-500/30 animate-spin-slow"></div>
-        <div className="absolute inset-2 rounded-full border-2 border-orange-400/50 animate-pulse"></div>
+        {/* Elegant frame with shadow and halo effect */}
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-400/30 to-purple-600/20 rounded-3xl border-2 border-orange-500/40 shadow-2xl shadow-orange-500/20 backdrop-blur-sm"></div>
+        <div className="absolute -inset-2 bg-gradient-to-br from-orange-400/10 to-purple-600/10 rounded-3xl blur-xl opacity-50"></div>
+        <div className="absolute inset-2 bg-gradient-to-br from-white/15 to-orange-500/10 rounded-2xl border border-orange-400/30"></div>
 
-        {/* Profile image with 3D effect */}
-        <div className="absolute inset-3 rounded-full overflow-hidden border-3 border-white/20 backdrop-blur-sm shadow-2xl">
+        {/* Profile image with elegant styling */}
+        <div className="absolute inset-4 rounded-2xl overflow-hidden border-3 border-white/40 shadow-inner shadow-black/20">
           <div className="relative w-full h-full">
             <Image
               src={src}
               alt={alt}
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
+              sizes="(max-width: 640px) 28rem, (max-width: 1024px) 36rem, 28rem"
+              priority
+              className="object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-110 group-hover:contrast-105"
             />
-            {/* Hologram effect overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-orange-400/5 rounded-full"></div>
+            {/* Subtle overlay effect */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-orange-500/15 rounded-2xl"></div>
+            {/* Shine effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </div>
         </div>
 
-        {/* Floating particles */}
-        <div className="absolute -top-2 -right-2 w-3 h-3 bg-orange-400 rounded-full animate-bounce delay-100"></div>
-        <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-orange-300 rounded-full animate-bounce delay-300"></div>
-        <div className="absolute top-1/2 -right-3 w-1.5 h-1.5 bg-orange-500 rounded-full animate-pulse delay-500"></div>
-      </div>
+        {/* Decorative corners with enhanced styling */}
+        <div className="absolute -top-2 -left-2 w-6 h-6 border-l-3 border-t-3 border-orange-400 rounded-tl-xl shadow-lg"></div>
+        <div className="absolute -top-2 -right-2 w-6 h-6 border-r-3 border-t-3 border-orange-400 rounded-tr-xl shadow-lg"></div>
+        <div className="absolute -bottom-2 -left-2 w-6 h-6 border-l-3 border-b-3 border-orange-400 rounded-bl-xl shadow-lg"></div>
+        <div className="absolute -bottom-2 -right-2 w-6 h-6 border-r-3 border-b-3 border-orange-400 rounded-br-xl shadow-lg"></div>
 
-      <style jsx>{`
-        @keyframes spin-slow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        .animate-spin-slow {
-          animation: spin-slow 8s linear infinite;
-        }
-        .preserve-3d {
-          transform-style: preserve-3d;
-        }
-      `}</style>
+        {/* Enhanced floating accent elements */}
+        <div className="absolute -top-4 left-1/3 w-3 h-3 bg-orange-400 rounded-full animate-pulse shadow-lg"></div>
+        <div className="absolute -bottom-3 right-1/4 w-2.5 h-2.5 bg-purple-400 rounded-full animate-bounce delay-200 shadow-lg"></div>
+        <div className="absolute top-1/2 -right-5 w-1.5 h-1.5 bg-orange-500 rounded-full animate-ping delay-500 shadow-lg"></div>
+        <div className="absolute -left-4 top-1/4 w-2 h-2 bg-orange-300 rounded-full animate-pulse delay-700 shadow-lg"></div>
+      </div>
     </div>
   );
 }

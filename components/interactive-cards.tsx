@@ -18,13 +18,12 @@ function InteractiveCard({ icon: Icon, title, description, href, gradient, delay
       <Link href={href}>
         <div className="relative h-48 perspective-1000 cursor-pointer">
           {/* Card front */}
-          <div className={`absolute inset-0 w-full h-full bg-gradient-to-br ${gradient} bg-opacity-10 border border-orange-500/20 backdrop-blur-sm rounded-2xl transition-all duration-500 group-hover:rotate-y-180 preserve-3d`}>
+          <div className={`absolute inset-0 w-full h-full bg-gradient-to-br ${gradient} bg-opacity-10 border border-orange-500/20 backdrop-blur-sm rounded-2xl transition-all duration-500 group-hover:rotate-y-180 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-orange-500/30 preserve-3d`}>
             <div className="flex flex-col items-center justify-center h-full p-6 text-center">
               <div className="p-4 rounded-full bg-white/10 mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Icon className="h-8 w-8 text-orange-400" />
+                <Icon className="h-12 w-12 text-orange-400" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
-              <p className="text-gray-300 text-sm opacity-80">{description}</p>
+              <h3 className="text-xl font-bold text-white">{title}</h3>
             </div>
           </div>
 
@@ -80,19 +79,19 @@ function InteractiveCard({ icon: Icon, title, description, href, gradient, delay
 export function InteractiveCards() {
   const cards = [
     {
-      icon: Code,
-      title: "Projets",
-      description: "Découvrez mes réalisations en développement",
-      href: "/projects",
-      gradient: "from-orange-500 to-orange-600",
-      delay: 0,
-    },
-    {
       icon: Brain,
       title: "Articles",
       description: "Plongez dans mes réflexions sur l'IA et la tech",
       href: "/blog",
       gradient: "from-orange-400 to-orange-500",
+      delay: 0,
+    },
+    {
+      icon: Code,
+      title: "Projets",
+      description: "Découvrez mes réalisations en développement",
+      href: "/projects",
+      gradient: "from-orange-500 to-orange-600",
       delay: 200,
     },
     {

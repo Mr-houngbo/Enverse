@@ -6,6 +6,7 @@ export interface Project {
   image?: string;
   githubUrl?: string;
   demoUrl?: string;
+  videoUrl?: string;
   featured?: boolean;
 }
 
@@ -16,7 +17,7 @@ export const projects: Project[] = [
     title: 'Chatbot IA Avancé',
     description: 'Un chatbot intelligent utilisant les dernières technologies d\'IA pour comprendre et répondre aux requêtes complexes.',
     tags: ['IA', 'Python', 'OpenAI', 'FastAPI'],
-    image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: '/images/ai-chatbot.svg',
     githubUrl: 'https://github.com/Mr-houngbo/ai-chatbot',
     demoUrl: 'https://demo-chatbot.vercel.app',
     featured: true,
@@ -26,7 +27,7 @@ export const projects: Project[] = [
     title: 'Dashboard de Visualisation de Données',
     description: 'Un tableau de bord interactif pour visualiser et analyser des datasets complexes avec des graphiques dynamiques.',
     tags: ['Data Science', 'React', 'D3.js', 'Python'],
-    image: 'https://images.pexels.com/photos/590041/pexels-photo-590041.jpg?auto=compress&cs=tinysrgb&w=800',
+    image: '/images/data-dashboard.svg',
     githubUrl: 'https://github.com/Mr-houngbo/data-dashboard',
     demoUrl: 'https://data-dashboard.vercel.app',
     featured: true,
@@ -36,13 +37,15 @@ export const projects: Project[] = [
     title: 'API de Prédiction ML',
     description: 'Une API RESTful pour servir des modèles de machine learning en production avec FastAPI et Docker.',
     tags: ['Machine Learning', 'FastAPI', 'Docker', 'MLOps'],
-    image: 'https://images.pexels.com/photos/577585/pexels-photo-577585.jpg?auto=compress&cs=tinysrgb&w=800',
+    image: '/images/ml-api.svg',
     githubUrl: 'https://github.com/Mr-houngbo/ml-api',
     featured: false,
   },
 ];
 
 export function getAllProjects(): Project[] {
+  // Maintenant on lit depuis le fichier JSON via l'API
+  // Cette fonction est gardée pour compatibilité
   return projects;
 }
 
@@ -50,6 +53,13 @@ export function getFeaturedProjects(): Project[] {
   return projects.filter((project) => project.featured);
 }
 
-export function getProjectById(id: string): Project | undefined {
-  return projects.find((project) => project.id === id);
+export function addProject(newProject: Omit<Project, 'id'> & { id: string }): Project {
+  const project: Project = {
+    ...newProject,
+    tags: newProject.tags || [],
+  };
+
+  // Pour l'instant, on ne sauvegarde pas dans l'array local
+  // Les projets sont maintenant sauvegardés dans le fichier JSON via l'API
+  return project;
 }
