@@ -12,6 +12,7 @@ export interface Post {
   tags: string[];
   summary: string;
   image?: string;
+  video?: string;
   content: string;
   readingTime: string;
 }
@@ -23,6 +24,7 @@ export interface PostMetadata {
   tags: string[];
   summary: string;
   image?: string;
+  video?: string;
   readingTime: string;
 }
 
@@ -70,6 +72,7 @@ export function getPostBySlug(slug: string): Post | null {
       tags: data.tags || [],
       summary: data.summary || '',
       image: data.image,
+      video: data.video,
       content,
       readingTime: readTime.text,
     };
@@ -90,6 +93,7 @@ export function getPostsByTag(tag: string): PostMetadata[] {
       tags: post.tags,
       summary: post.summary,
       image: post.image,
+      video: post.video,
       readingTime: post.readingTime,
     }));
 }
@@ -97,7 +101,7 @@ export function getPostsByTag(tag: string): PostMetadata[] {
 export function getAllTags(): string[] {
   const allPosts = getAllPosts();
   const tags = allPosts.flatMap((post) => post.tags);
-  return [...new Set(tags)].sort();
+  return Array.from(new Set(tags)).sort();
 }
 
 export function getRecentPosts(limit: number = 3): PostMetadata[] {
@@ -109,6 +113,46 @@ export function getRecentPosts(limit: number = 3): PostMetadata[] {
     tags: post.tags,
     summary: post.summary,
     image: post.image,
+    video: post.video,
     readingTime: post.readingTime,
   }));
+}
+
+export function createPost(slug: string, postData: Omit<Post, 'slug' | 'readingTime'>): Post {
+  try {
+    const fullPath = path.join(postsDirectory, `${slug}.mdx`);
+
+    // Check if post already exists
+    if (fs.existsSync(fullPath)) {
+      throw new Error('Un article avec ce titre existe déjà');
+    }
+
+    // Create frontmatter
+    const frontmatter = {
+      title: postData.title,
+      date: postData.date,
+      tags: postData.tags,
+      summary: postData.summary,
+      ...(postData.image && { image: postData.image }),
+      ...(postData.video && { video: postData.video }),
+    };
+
+    // Create content with frontmatter
+    const fileContent = matter.stringify(postData.content, frontmatter);
+
+    // Write file
+    fs.writeFileSync(fullPath, fileContent, 'utf8');
+
+    // Calculate reading time
+    const readTime = readingTime(postData.content);
+
+    return {
+      slug,
+      ...postData,
+      readingTime: readTime.text,
+    };
+  } catch (error) {
+    console.error('Error creating post:', error);
+    throw error;
+  }
 }

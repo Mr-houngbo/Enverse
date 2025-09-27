@@ -48,13 +48,12 @@ export default function AboutPage() {
       <section className="text-center mb-16">
         <div className="relative w-40 h-40 mx-auto rounded-full overflow-hidden border-4 border-primary dark:border-primary-dark mb-8">
           <Image
-            src="images/profile.JPG"
+            src="/images/profile.jpg"
             alt="Photo de profil"
             fill
             className="object-cover"
           />
         </div>
-        
         <h1 className="text-4xl font-bold text-foreground dark:text-foreground-dark mb-4">
           Salut, moi c'est Calixte Raoul T. HOUNGBO 👋
         </h1>
