@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #FF6600;
+  --primary-dark: #FF7700;
+  --background: #FFFFFF;
+  --background-dark: #000000;
+  --foreground: #000000;
+  --foreground-dark: #FFFFFF;
+  --secondary: #333333;
+  --secondary-dark: #AAAAAA;
+}
+
+@layer base {
+  html {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  body {
+    @apply bg-background dark:bg-background-dark text-foreground dark:text-foreground-dark transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-dark dark:bg-primary-dark dark:hover:bg-primary text-white px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply border-2 border-primary hover:border-primary-dark dark:border-primary-dark dark:hover:border-primary text-primary hover:text-primary-dark dark:text-primary-dark dark:hover:text-primary px-6 py-3 rounded-xl font-medium transition-all duration-200;
+  }
+  
+  .card {
+    @apply bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-6 hover:shadow-lg transition-all duration-200;
+  }
+  
+  .tag {
+    @apply inline-block bg-primary/10 dark:bg-primary-dark/20 text-primary dark:text-primary-dark px-3 py-1 rounded-full text-sm font-medium hover:bg-primary/20 dark:hover:bg-primary-dark/30 transition-colors cursor-pointer;
+  }
+}
