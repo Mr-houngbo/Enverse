@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 
 interface InteractivePhotoProps {
@@ -9,8 +9,24 @@ interface InteractivePhotoProps {
 
 export function InteractivePhoto({ src, alt, size = 'default' }: InteractivePhotoProps) {
   const cardRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Vérifier si on est sur mobile
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
+
+  useEffect(() => {
+    // Désactiver les animations sur mobile
+    if (isMobile) return;
+
     const card = cardRef.current;
     if (!card) return;
 
@@ -39,14 +55,14 @@ export function InteractivePhoto({ src, alt, size = 'default' }: InteractivePhot
       card.removeEventListener('mousemove', handleMouseMove);
       card.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <div className="relative group">
       <div
         ref={cardRef}
         className={`relative mx-auto transition-transform duration-200 ease-out ${
-          size === 'large' ? 'w-[36rem] h-80' : 'w-[28rem] h-64'
+          size === 'large' ? 'w-[36rem] h-96' : 'w-[28rem] h-80'
         }`}
         style={{ transformStyle: 'preserve-3d' }}
       >
