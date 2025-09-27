@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { AdminPostForm } from '@/components/admin/admin-post-form';
 import { AdminNavbar } from '@/components/admin/admin-navbar';
 
-const ADMIN_PASSWORD = '@enverse2025'; // You should change this to a secure password
+const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || '@enverse2025'; // fallback pour dev
 
 export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
