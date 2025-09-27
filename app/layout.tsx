@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   keywords: 'blog, IA, intelligence artificielle, data science, projets, réflexions',
   authors: [{ name: 'Calixte Raoul T. HOUNGBO' }],
   creator: 'Calixte Raoul T. HOUNGBO',
+  icons: {
+    icon: '/favicon.ico',
+  },
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
