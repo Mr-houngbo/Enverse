@@ -109,86 +109,89 @@ export default function Home() {
       <div className="relative w-full z-10">
         
         {/* Hero Section */}
-        <section className="w-full py-20 px-4 sm:px-6 lg:px-8 min-h-[80vh] flex items-center">
+        <section className="w-full py-12 sm:py-20 px-4 sm:px-6 lg:px-8 min-h-[70vh] sm:min-h-[80vh] flex items-center">
           <div className="max-w-7xl mx-auto w-full">
-            <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-center">
               {/* Left side - Text content */}
-              <div className="lg:col-span-7 space-y-6 lg:space-y-8">
+              <div className="lg:col-span-7 space-y-4 sm:space-y-8">
                 <div className="space-y-2">
-                  <div className="inline-flex items-center px-3 py-1 lg:px-4 lg:py-2 rounded-full bg-orange-500/10 border border-orange-500/20 mb-2 lg:mb-4">
-                    <span className="text-orange-300 text-xs lg:text-sm font-medium">✨ Bienvenue sur mon univers créatif</span>
+                  <div className="inline-flex items-center px-3 sm:px-4 py-1 sm:py-2 rounded-full bg-orange-500/10 border border-orange-500/20 mb-2 sm:mb-4">
+                    <span className="text-orange-300 text-xs sm:text-sm font-medium">✨ Bienvenue sur mon univers</span>
                   </div>
                   
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-orange-600 to-orange-500 dark:from-white dark:via-orange-100 dark:to-orange-300 leading-tight">
+                  <h1 className="text-3xl sm:text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-orange-600 to-orange-500 dark:from-white dark:via-orange-100 dark:to-orange-300 leading-tight">
                     Enverse
                   </h1>
                 </div>
                 
-                <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed font-light">
-                  <span className="hidden sm:inline">Explorez mes réflexions et projets autour de l'</span><span className="text-orange-500 dark:text-orange-300 font-semibold">IA</span> et de la <span className="text-orange-500 dark:text-orange-300 font-semibold">data science</span>.
-                  <span className="hidden md:block mt-2 text-orange-400 dark:text-orange-300/80 font-medium">
-                    Un ouvert pour explorer, rêver et tordre l'avenir à notre image.
+                <p className="text-base sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed font-light">
+                  <span className="hidden sm:inline">Explorez mes réflexions et projets autour de l'</span><span className="text-orange-500 dark:text-orange-300 font-semibold">IA</span> et de la <span className="text-orange-500 dark:text-orange-300 font-semibold">data science</span><span className="hidden md:inline"> jusqu'aux horizons philosophiques.</span>
+                  <span className="block mt-2 sm:mt-4 text-orange-400 dark:text-orange-300/80 font-medium text-sm sm:text-base">
+                    <span className="hidden sm:inline">Un ouvert pour explorer, rêver et tordre l'avenir à notre image.</span>
+                    <span className="sm:hidden">Créatif & Technologique</span>
                   </span>
                 </p>
 
-                {/* Interactive Cards CTA */}
-                <div className="pt-4 lg:pt-8">
+                {/* Interactive Cards CTA - Smaller on mobile */}
+                <div className="pt-4 sm:pt-8">
                   <InteractiveCards />
                 </div>
               </div>
 
-              {/* Right side - Interactive Photo - Closer to text */}
-              <div className="lg:col-span-5 flex justify-center lg:justify-end">
-                <InteractivePhoto
-                  src="https://drive.google.com/uc?export=view&id=1NDvB_Q63P72CgQOwhgiS5W_ncq7fJYVr"
-                  alt="Photo de profil"
-                />
+              {/* Right side - Interactive Photo - Smaller on mobile */}
+              <div className="lg:col-span-5 flex justify-center lg:justify-end order-first lg:order-last">
+                <div className="w-full max-w-xs sm:max-w-sm lg:max-w-md">
+                  <InteractivePhoto
+                    src="https://drive.google.com/uc?export=view&id=1NDvB_Q63P72CgQOwhgiS5W_ncq7fJYVr"
+                    alt="Photo de profil"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         {/* Recent Posts Section */}
-        <section className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-gray-50 via-white to-gray-50 dark:from-gray-900/50 dark:via-black/80 dark:to-gray-900/50">
-          <div className="max-w-7xl mx-auto space-y-12">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-            <div className="space-y-3">
-              <h2 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white">
+        <section className="w-full py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-gray-50 via-white to-gray-50 dark:from-gray-900/50 dark:via-black/80 dark:to-gray-900/50">
+          <div className="max-w-7xl mx-auto space-y-8 sm:space-y-12">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6">
+            <div className="space-y-2 sm:space-y-3">
+              <h2 className="text-2xl sm:text-4xl md:text-6xl font-bold text-gray-900 dark:text-white">
                 Derniers
-                <span className="text-orange-400 ml-3">Articles</span>
+                <span className="text-orange-400 ml-2 sm:ml-3">Articles</span>
               </h2>
-              <div className="w-24 h-1.5 bg-gradient-to-r from-orange-500 to-transparent rounded-full"></div>
+              <div className="w-16 sm:w-24 h-1.5 bg-gradient-to-r from-orange-500 to-transparent rounded-full"></div>
             </div>
             
             <Link
               href="/blog"
-              className="group inline-flex items-center space-x-2 lg:space-x-3 px-4 py-2 lg:px-6 lg:py-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold text-sm lg:text-base rounded-lg lg:rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25"
+              className="group inline-flex items-center space-x-2 sm:space-x-3 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25 text-sm sm:text-base"
             >
               <span>Voir tous les articles</span>
-              <ArrowRight className="h-4 w-4 lg:h-5 lg:w-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
           {loading ? (
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="h-64 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl animate-pulse">
-                  <div className="p-6 space-y-4">
-                    <div className="w-3/4 h-6 bg-gray-700 rounded"></div>
-                    <div className="w-1/2 h-4 bg-gray-700 rounded"></div>
+                <div key={i} className="h-48 sm:h-64 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl animate-pulse">
+                  <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
+                    <div className="w-3/4 h-4 sm:h-6 bg-gray-700 rounded"></div>
+                    <div className="w-1/2 h-3 sm:h-4 bg-gray-700 rounded"></div>
                     <div className="space-y-2">
-                      <div className="w-full h-4 bg-gray-700 rounded"></div>
-                      <div className="w-5/6 h-4 bg-gray-700 rounded"></div>
+                      <div className="w-full h-3 sm:h-4 bg-gray-700 rounded"></div>
+                      <div className="w-5/6 h-3 sm:h-4 bg-gray-700 rounded"></div>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
           ) : recentPosts.length > 0 ? (
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {recentPosts.map((post, index) => (
                 <div key={post.slug} className="group">
-                  <div className="h-full p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl hover:border-orange-500/50 transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-orange-500/10">
+                  <div className="h-full p-4 sm:p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl hover:border-orange-500/50 transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-orange-500/10">
                     <PostCard 
                       post={post} 
                       featured={index === 0}
@@ -198,11 +201,11 @@ export default function Home() {
               ))}
             </div>
           ) : (
-            <div className="text-center py-20">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-500/10 rounded-full mb-4">
-                <Coffee className="w-8 h-8 text-orange-400" />
+            <div className="text-center py-12 sm:py-20">
+              <div className="inline-flex items-center justify-center w-12 sm:w-16 h-12 sm:h-16 bg-orange-500/10 rounded-full mb-4">
+                <Coffee className="w-6 sm:w-8 h-6 sm:h-8 text-orange-400" />
               </div>
-              <p className="text-gray-400 dark:text-gray-400 text-xl font-light">
+              <p className="text-gray-400 dark:text-gray-400 text-lg sm:text-xl font-light">
                 Aucun article pour le moment. Le premier article arrive bientôt !
               </p>
             </div>
@@ -212,27 +215,27 @@ export default function Home() {
 
         {/* Featured Projects Section */}
         {featuredProjects.length > 0 && (
-          <section className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-gray-50 via-white to-gray-50 dark:from-gray-900/50 dark:via-black/80 dark:to-gray-900/50">
-            <div className="max-w-7xl mx-auto space-y-12">
-            <div className="flex items-center justify-between">
+          <section className="w-full py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-gray-50 via-white to-gray-50 dark:from-gray-900/50 dark:via-black/80 dark:to-gray-900/50">
+            <div className="max-w-7xl mx-auto space-y-8 sm:space-y-12">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6">
               <div className="space-y-2">
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
+                <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
                   Projets en
-                  <span className="text-orange-400 ml-3">Vedette</span>
+                  <span className="text-orange-400 ml-2 sm:ml-3">Vedette</span>
                 </h2>
-                <div className="w-20 h-1 bg-gradient-to-r from-orange-500 to-transparent rounded-full"></div>
+                <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-orange-500 to-transparent rounded-full"></div>
               </div>
               
               <Link
                 href="/projects"
-                className="group inline-flex items-center space-x-2 lg:space-x-3 px-4 py-2 lg:px-6 lg:py-3 border-2 border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-black font-semibold text-sm lg:text-base rounded-lg lg:rounded-xl transition-all duration-300 hover:scale-105"
+                className="group inline-flex items-center space-x-2 sm:space-x-3 px-4 sm:px-6 py-2 sm:py-3 border-2 border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-black font-semibold rounded-xl transition-all duration-300 hover:scale-105 text-sm sm:text-base"
               >
-                <span>Voir tous les projets</span>
-                <ArrowRight className="h-4 w-4 lg:h-5 lg:w-5 group-hover:translate-x-1 transition-transform" />
+                <span>Voir tous</span>
+                <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
 
-            <div className="grid gap-4 sm:gap-6 lg:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {featuredProjects.map((project) => (
                 <div key={project.id} className="group">
                   <div className="h-full p-4 sm:p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl hover:border-orange-500/50 transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-orange-500/10">

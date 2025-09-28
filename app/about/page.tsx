@@ -54,11 +54,10 @@ export default function AboutPage() {
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left side - Profile Image */}
-              <div className="flex justify-center lg:justify-start">
+              <div className="w-full max-w-xs sm:max-w-sm lg:max-w-md">
                 <InteractivePhoto
-                  src="https://drive.google.com/uc?export=view&id=1NDvB_Q63P72CgQOwhgiS5W_ncq7fJYVr"
+                  src="https://drive.google.com/uc?export=view&id=1-6S6m2GVrPnqjWgClotzJu7YtlRVsZWs"
                   alt="Photo de profil"
-                  size="large"
                 />
               </div>
 

@@ -9,16 +9,17 @@ interface InteractiveCardProps {
   gradient: string;
   delay?: number;
 }
+
 function InteractiveCard({ icon: Icon, title, description, href, gradient, delay = 0 }: InteractiveCardProps) {
   return (
     <div
       className={`group relative w-full ${delay === 0 ? 'animate-delay-0' : delay === 200 ? 'animate-delay-200' : 'animate-delay-400'}`}
     >
       <Link href={href} className="block">
-        <div className="relative h-40 sm:h-48 perspective-1000 cursor-pointer overflow-hidden">
+        <div className="relative h-32 sm:h-40 perspective-1000 cursor-pointer overflow-hidden">
           {/* Card front */}
           <div className={`absolute inset-0 w-full h-full bg-gradient-to-br ${gradient} bg-opacity-10 border border-orange-500/20 backdrop-blur-sm rounded-2xl transition-all duration-500 md:group-hover:rotate-y-180 md:group-hover:scale-105 md:group-hover:shadow-2xl md:group-hover:shadow-orange-500/30 preserve-3d`}>
-            <div className="flex flex-col items-center justify-center h-full p-6 text-center">
+            <div className="flex flex-col items-center justify-center h-full p-4 sm:p-6 text-center">
               <div className="p-4 rounded-full bg-white/10 mb-4 md:group-hover:scale-110 transition-transform duration-300">
                 <Icon className="h-12 w-12 text-orange-400" />
               </div>
@@ -28,10 +29,11 @@ function InteractiveCard({ icon: Icon, title, description, href, gradient, delay
 
           {/* Card back */}
           <div className={`absolute inset-0 w-full h-full bg-gradient-to-br ${gradient} bg-opacity-20 border border-orange-500/30 backdrop-blur-sm rounded-2xl transition-all duration-500 rotate-y-180 backface-hidden`}>
-            <div className="flex flex-col items-center justify-center h-full p-6 text-center">
+            <div className="flex flex-col items-center justify-center h-full p-4 sm:p-6 text-center">
               <Sparkles className="h-12 w-12 text-orange-300 mb-4 md:animate-pulse" />
               <h3 className="text-xl font-bold text-white mb-2">Découvrez</h3>
               <p className="text-gray-200 text-sm mb-4">Cliquez pour explorer</p>
+              <ArrowRight className="h-6 w-6 text-orange-400 md:group-hover:translate-x-2 transition-transform duration-300" />
             </div>
           </div>
         </div>
@@ -103,8 +105,8 @@ export function InteractiveCards() {
   ];
 
   return (
-    <div className="grid gap-4 sm:gap-6 md:grid-cols-3 max-w-full sm:max-w-4xl mx-auto px-1">
-      {cards.map((card, index) => (
+    <div className="grid gap-3 sm:gap-4 md:gap-6 grid-cols-1 sm:grid-cols-3 max-w-full sm:max-w-4xl mx-auto px-1">
+      {cards.map((card: any, index: number) => (
         <InteractiveCard key={index} {...card} />
       ))}
     </div>
