@@ -113,26 +113,26 @@ export default function Home() {
           <div className="max-w-7xl mx-auto w-full">
             <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               {/* Left side - Text content */}
-              <div className="lg:col-span-7 space-y-8">
+              <div className="lg:col-span-7 space-y-6 lg:space-y-8">
                 <div className="space-y-2">
-                  <div className="inline-flex items-center px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 mb-4">
-                    <span className="text-orange-300 text-sm font-medium">✨ Bienvenue sur mon univers , Créatif & Technologique </span>
+                  <div className="inline-flex items-center px-3 py-1 lg:px-4 lg:py-2 rounded-full bg-orange-500/10 border border-orange-500/20 mb-2 lg:mb-4">
+                    <span className="text-orange-300 text-xs lg:text-sm font-medium">✨ Bienvenue sur mon univers créatif</span>
                   </div>
                   
-                  <h1 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-orange-600 to-orange-500 dark:from-white dark:via-orange-100 dark:to-orange-300 leading-tight">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-orange-600 to-orange-500 dark:from-white dark:via-orange-100 dark:to-orange-300 leading-tight">
                     Enverse
                   </h1>
                 </div>
                 
-                <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed font-light">
-                  Explorez mes réflexions et projets autour de l'<span className="text-orange-500 dark:text-orange-300 font-semibold">IA</span> et de la <span className="text-orange-500 dark:text-orange-300 font-semibold">data science</span> jusqu'aux horizons philosophiques.
-                  <span className="block mt-4 text-orange-400 dark:text-orange-300/80 font-medium">
+                <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed font-light">
+                  <span className="hidden sm:inline">Explorez mes réflexions et projets autour de l'</span><span className="text-orange-500 dark:text-orange-300 font-semibold">IA</span> et de la <span className="text-orange-500 dark:text-orange-300 font-semibold">data science</span>.
+                  <span className="hidden md:block mt-2 text-orange-400 dark:text-orange-300/80 font-medium">
                     Un ouvert pour explorer, rêver et tordre l'avenir à notre image.
                   </span>
                 </p>
 
                 {/* Interactive Cards CTA */}
-                <div className="pt-8">
+                <div className="pt-4 lg:pt-8">
                   <InteractiveCards />
                 </div>
               </div>
@@ -162,10 +162,10 @@ export default function Home() {
             
             <Link
               href="/blog"
-              className="group inline-flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25"
+              className="group inline-flex items-center space-x-2 lg:space-x-3 px-4 py-2 lg:px-6 lg:py-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold text-sm lg:text-base rounded-lg lg:rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25"
             >
               <span>Voir tous les articles</span>
-              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="h-4 w-4 lg:h-5 lg:w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
@@ -225,17 +225,17 @@ export default function Home() {
               
               <Link
                 href="/projects"
-                className="group inline-flex items-center space-x-3 px-6 py-3 border-2 border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-black font-semibold rounded-xl transition-all duration-300 hover:scale-105"
+                className="group inline-flex items-center space-x-2 lg:space-x-3 px-4 py-2 lg:px-6 lg:py-3 border-2 border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-black font-semibold text-sm lg:text-base rounded-lg lg:rounded-xl transition-all duration-300 hover:scale-105"
               >
                 <span>Voir tous les projets</span>
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="h-4 w-4 lg:h-5 lg:w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 sm:gap-6 lg:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {featuredProjects.map((project) => (
                 <div key={project.id} className="group">
-                  <div className="h-full p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl hover:border-orange-500/50 transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-orange-500/10">
+                  <div className="h-full p-4 sm:p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl hover:border-orange-500/50 transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-orange-500/10">
                     <ProjectCard project={project} />
                   </div>
                 </div>
