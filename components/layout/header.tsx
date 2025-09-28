@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
 import { Sun, Moon, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
@@ -9,6 +10,7 @@ export function Header() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true);
@@ -36,7 +38,11 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-secondary hover:text-foreground dark:text-secondary-dark dark:hover:text-foreground-dark font-medium transition-colors"
+                className={`font-medium transition-colors ${
+                  pathname === item.href
+                    ? 'text-primary hover:text-primary-dark'
+                    : 'text-secondary hover:text-foreground dark:text-secondary-dark dark:hover:text-foreground-dark'
+                }`}
               >
                 {item.name}
               </Link>
@@ -78,7 +84,11 @@ export function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-secondary hover:text-foreground dark:text-secondary-dark dark:hover:text-foreground-dark font-medium transition-colors py-2"
+                  className={`font-medium transition-colors py-2 ${
+                    pathname === item.href
+                      ? 'text-primary hover:text-primary-dark'
+                      : 'text-secondary hover:text-foreground dark:text-secondary-dark dark:hover:text-foreground-dark'
+                  }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
