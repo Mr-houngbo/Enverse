@@ -10,9 +10,9 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://enverse.vercel.app'), // Remplacez par votre domaine réel lors du déploiement
-  title: 'Enverse | Blog Personnel - IA, Data Science & Réflexions',
-  description: 'Articles sur l\'IA, la data science, mes projets et réflexions personnelles',
-  keywords: 'blog, IA, intelligence artificielle, data science, projets, réflexions',
+  title: 'Calixte Raoul T. HOUNGBO | Enverse - Blog Personnel IA & Data Science',
+  description: 'Blog personnel de Calixte Raoul T. HOUNGBO - Articles sur l\'IA, la data science, mes projets et réflexions personnelles',
+  keywords: 'Calixte Raoul HOUNGBO, blog, IA, intelligence artificielle, data science, projets, réflexions, Sénégal, Dakar',
   authors: [{ name: 'Calixte Raoul T. HOUNGBO' }],
   creator: 'Calixte Raoul T. HOUNGBO',
   icons: {
@@ -22,14 +22,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'fr_FR',
     url: 'https://enverse.vercel.app',
-    title: 'Enverse - Blog Personnel',
-    description: 'Articles sur l\'IA, la data science et mes réflexions personnelles',
+    title: 'Calixte Raoul T. HOUNGBO - Enverse Blog Personnel',
+    description: 'Blog personnel de Calixte Raoul T. HOUNGBO - Articles sur l\'IA, la data science et mes réflexions personnelles',
     siteName: 'Enverse',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Enverse - Blog Personnel',
-    description: 'Articles sur l\'IA, la data science et mes réflexions personnelles',
+    title: 'Calixte Raoul T. HOUNGBO - Enverse Blog Personnel',
+    description: 'Blog personnel de Calixte Raoul T. HOUNGBO - Articles sur l\'IA, la data science et mes réflexions personnelles',
     creator: '@raoulcalixte',
   },
   robots: {

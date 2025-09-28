@@ -31,20 +31,24 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
   }
 
   return {
-    title: `${post.title} | Mon Blog`,
+    title: `${post.title} | Calixte Raoul T. HOUNGBO - Enverse`,
     description: post.summary,
+    authors: [{ name: 'Calixte Raoul T. HOUNGBO' }],
+    creator: 'Calixte Raoul T. HOUNGBO',
     openGraph: {
-      title: post.title,
+      title: `${post.title} | Calixte Raoul T. HOUNGBO`,
       description: post.summary,
       type: 'article',
       publishedTime: post.date,
+      authors: ['Calixte Raoul T. HOUNGBO'],
       tags: post.tags,
       ...(post.image && { images: [post.image] }),
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.title,
+      title: `${post.title} | Calixte Raoul T. HOUNGBO`,
       description: post.summary,
+      creator: '@raoulcalixte',
       ...(post.image && { images: [post.image] }),
     },
   };

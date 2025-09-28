@@ -1,5 +1,6 @@
 "use client";
 
+import Head from 'next/head';
 import { Github, Twitter, Linkedin, Mail, MapPin, Calendar } from 'lucide-react';
 import Image from 'next/image';
 import { InteractivePhoto } from '@/components/interactive-photo';
@@ -40,7 +41,51 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:via-black dark:to-gray-900">
+    <>
+      <Head>
+        <title>À propos - Calixte Raoul T. HOUNGBO | Enverse</title>
+        <meta name="description" content="Découvrez le profil de Calixte Raoul T. HOUNGBO, étudiant en Master Finance Digitale, passionné par l'IA et la data science." />
+        <meta name="keywords" content="Calixte Raoul HOUNGBO, profil, IA, data science, Sénégal, Dakar" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Calixte Raoul T. HOUNGBO",
+              "givenName": "Calixte Raoul",
+              "familyName": "HOUNGBO",
+              "jobTitle": "Étudiant en Master Finance Digitale",
+              "description": "Étudiant en Master Finance Digitale à l'Université de Dakar, passionné par l'intelligence artificielle, la data science et les technologies émergentes.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Dakar",
+                "addressCountry": "Sénégal"
+              },
+              "sameAs": [
+                "https://github.com/Mr-houngbo",
+                "https://twitter.com/raoulcalixte",
+                "https://www.linkedin.com/in/calixte-raoul-t-houngbo-330561249/",
+                "https://enverse.vercel.app"
+              ],
+              "knowsAbout": [
+                "Intelligence Artificielle",
+                "Data Science",
+                "Python",
+                "Machine Learning",
+                "Finance Digitale",
+                "Automatisation"
+              ],
+              "alumniOf": {
+                "@type": "EducationalOrganization",
+                "name": "Université de Dakar"
+              },
+              "url": "https://enverse.vercel.app/about"
+            })
+          }}
+        />
+      </Head>
+      <div className="min-h-screen bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:via-black dark:to-gray-900">
       {/* Subtle floating background elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/5 w-64 h-64 bg-orange-500/5 dark:bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -230,5 +275,6 @@ export default function AboutPage() {
         </section>
       </div>
     </div>
+    </>
   );
 }

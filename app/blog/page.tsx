@@ -4,8 +4,21 @@ import { BlogFilter } from '@/components/blog/blog-filter';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Blog | Articles sur l\'IA, Data Science & Tech',
-  description: 'Découvrez mes articles sur l\'intelligence artificielle, la data science, mes projets et réflexions personnelles.',
+  title: 'Blog - Calixte Raoul T. HOUNGBO | Articles IA, Data Science & Réflexions',
+  description: 'Découvrez les articles de Calixte Raoul T. HOUNGBO sur l\'intelligence artificielle, la data science, mes projets et réflexions personnelles.',
+  authors: [{ name: 'Calixte Raoul T. HOUNGBO' }],
+  creator: 'Calixte Raoul T. HOUNGBO',
+  openGraph: {
+    title: 'Blog - Calixte Raoul T. HOUNGBO | Articles IA & Data Science',
+    description: 'Découvrez les articles de Calixte Raoul T. HOUNGBO sur l\'intelligence artificielle, la data science et ses réflexions personnelles.',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog - Calixte Raoul T. HOUNGBO | Articles IA & Data Science',
+    description: 'Découvrez les articles de Calixte Raoul T. HOUNGBO sur l\'intelligence artificielle, la data science et ses réflexions personnelles.',
+    creator: '@raoulcalixte',
+  },
 };
 
 interface BlogPageProps {
