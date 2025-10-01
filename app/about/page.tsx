@@ -50,10 +50,10 @@ export default function AboutPage() {
       date: '7 Juillet - 7 Septembre 2025',
       description: 'Bootcamp en ligne de 2 mois sur la Data Science, projet final Smart Invest',
       detailedDescription: 'Programme intensif de 2 mois organisé par United Student Developers. Formation complète en Data Science avec apprentissage pratique des concepts avancés, techniques d\'analyse de données, visualisation et modélisation prédictive. Projet final : développement de l\'application Smart Invest, plateforme d\'investissement intelligent utilisant l\'IA pour optimiser les décisions d\'investissement.',
-      image: '/images/cert-bootcamp-usd.svg',
-      ceremonyImage: '/images/cert-bootcamp-usd.svg',
+      image: 'https://drive.google.com/uc?export=view&id=1J4B3UdnKVxAE0aNSlNG4WHY_PzTKwuuP',
+      ceremonyImage: 'https://drive.google.com/uc?export=view&id=1HnBABG9Yeng5-33EvUPpwOXK9kVDsOQt',
       icon: '🚀',
-      thumbnailImage: '/images/cert-bootcamp-usd.svg'
+      thumbnailImage: 'https://drive.google.com/uc?export=view&id=1J4B3UdnKVxAE0aNSlNG4WHY_PzTKwuuP'
     },
     {
       id: 'ctia',
