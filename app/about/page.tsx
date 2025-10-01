@@ -89,7 +89,7 @@ export default function AboutPage() {
       image: 'https://drive.google.com/uc?export=view&id=1Pp9o1gJHtlDP71PCvrzz_tDc6_6VDm83',
       ceremonyImage: '/images/cert-ia-nlp.svg',
       icon: '📊',
-      thumbnailImage: '/images/cert-ia-nlp.svg'
+      thumbnailImage: 'https://drive.google.com/uc?export=view&id=1QvCjGgicktjCKsuHeTDRjXUM5ctzAs9T'
     }
   ];
 
