@@ -86,7 +86,7 @@ export default function AboutPage() {
       date: 'Janvier - Juillet 2025',
       description: 'Machine Learning, NLP, Deep Learning, Mathématiques pour l\'IA, Analyse & Visualisation (Pandas, Seaborn)',
       detailedDescription: 'Programme avancé en Intelligence Artificielle et Science des Données. Formation approfondie sur le Machine Learning, le Traitement du Langage Naturel (NLP), le Deep Learning, les mathématiques appliquées à l\'IA, et l\'analyse/visualisation de données avec Pandas et Seaborn.',
-      image: '/images/cert-ia-nlp.svg',
+      image: 'https://drive.google.com/uc?export=view&id=1Pp9o1gJHtlDP71PCvrzz_tDc6_6VDm83',
       ceremonyImage: '/images/cert-ia-nlp.svg',
       icon: '📊',
       thumbnailImage: '/images/cert-ia-nlp.svg'
