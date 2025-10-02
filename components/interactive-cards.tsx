@@ -98,7 +98,7 @@ export function InteractiveCards() {
       icon: Coffee,
       title: "À propos",
       description: "En savoir plus sur mon parcours",
-      href: "/about",
+      href: "",
       gradient: "from-orange-300 to-orange-400",
       delay: 400,
     },

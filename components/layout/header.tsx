@@ -20,7 +20,6 @@ export function Header() {
     { name: 'Accueil', href: '/' },
     { name: 'Articles', href: '/blog' },
     { name: 'Projets', href: '/projects' },
-    { name: 'À propos', href: '/about' },
   ];
 
   return (
