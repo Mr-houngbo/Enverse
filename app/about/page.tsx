@@ -4,10 +4,35 @@ import Head from 'next/head';
 import { Github, Twitter, Linkedin, Mail, MapPin, Calendar, X } from 'lucide-react';
 import Image from 'next/image';
 import { InteractivePhoto } from '@/components/interactive-photo';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function AboutPage() {
   const [selectedCertification, setSelectedCertification] = useState<any>(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    // Vérifier l'authentification au montage du composant
+    const authenticated = sessionStorage.getItem('aboutAuthenticated') === 'true';
+    if (!authenticated) {
+      router.replace('/about/auth');
+    } else {
+      setIsAuthenticated(true);
+    }
+  }, [router]);
+
+  // Afficher un écran de chargement pendant la vérification
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-950 dark:to-black flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-600 mx-auto mb-4"></div>
+          <p className="text-orange-700 dark:text-orange-300">Vérification de l'accès...</p>
+        </div>
+      </div>
+    );
+  }
   const socialLinks = [
     { name: 'GitHub', href: 'https://github.com/Mr-houngbo', icon: Github },
     { name: 'Twitter', href: 'https://twitter.com/raoulcalixte', icon: Twitter },

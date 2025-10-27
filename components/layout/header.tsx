@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
-import { Sun, Moon, Menu, X } from 'lucide-react';
+import { Sun, Moon, Menu, X, Settings } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 export function Header() {
@@ -48,7 +48,7 @@ export function Header() {
             ))}
           </nav>
 
-          {/* Theme Toggle & Mobile Menu */}
+          {/* Theme Toggle & Admin Button */}
           <div className="flex items-center space-x-4">
             {mounted && (
               <button
@@ -63,6 +63,16 @@ export function Header() {
                 )}
               </button>
             )}
+
+            {/* Admin Button - Very Discrete */}
+            <Link
+              href="/admin/auth"
+              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors opacity-30 hover:opacity-100"
+              aria-label="Accès administration"
+              title="Administration"
+            >
+              <Settings className="h-4 w-4 text-gray-500 dark:text-gray-400" />
+            </Link>
 
             {/* Mobile Menu Button */}
             <button
@@ -93,6 +103,15 @@ export function Header() {
                   {item.name}
                 </Link>
               ))}
+              {/* Admin Link Mobile - Discrete */}
+              <Link
+                href="/admin/auth"
+                className="font-medium transition-colors py-2 text-secondary hover:text-foreground dark:text-secondary-dark dark:hover:text-foreground-dark opacity-60 hover:opacity-100 flex items-center space-x-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <Settings className="h-4 w-4" />
+                <span>Administration</span>
+              </Link>
             </nav>
           </div>
         )}

@@ -1,73 +1,37 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { AdminPostForm } from '@/components/admin/admin-post-form';
 import { AdminNavbar } from '@/components/admin/admin-navbar';
 
-const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || '@enverse2025'; // fallback pour dev
-
 export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const router = useRouter();
 
-  const handlePasswordSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (password === ADMIN_PASSWORD) {
-      setIsAuthenticated(true);
-      setError('');
+  useEffect(() => {
+    // Vérifier l'authentification au montage du composant
+    const authenticated = sessionStorage.getItem('adminAuthenticated') === 'true';
+    if (!authenticated) {
+      router.replace('/admin/auth');
     } else {
-      setError('Mot de passe incorrect');
+      setIsAuthenticated(true);
     }
-  };
+  }, [router]);
 
   const handleLogout = () => {
+    sessionStorage.removeItem('adminAuthenticated');
     setIsAuthenticated(false);
-    setPassword('');
+    router.push('/');
   };
 
+  // Afficher un écran de chargement pendant la vérification
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-950 dark:to-black flex items-center justify-center px-4">
-        <div className="max-w-md w-full space-y-8">
-          <div className="text-center">
-            <h1 className="text-3xl font-bold text-orange-900 dark:text-orange-100 mb-2">
-              Accès Administration
-            </h1>
-            <p className="text-orange-700 dark:text-orange-300">
-              Entrez le mot de passe pour accéder à la page de publication
-            </p>
-          </div>
-
-          <form onSubmit={handlePasswordSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium text-orange-800 dark:text-orange-200 mb-2">
-                Mot de passe
-              </label>
-              <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 border border-orange-300 dark:border-orange-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 bg-orange-100 dark:bg-orange-900 text-orange-900 dark:text-orange-100 placeholder-orange-600 dark:placeholder-orange-400"
-                placeholder="Entrez le mot de passe"
-                required
-              />
-            </div>
-
-            {error && (
-              <div className="text-red-600 dark:text-red-400 text-sm text-center">
-                {error}
-              </div>
-            )}
-
-            <button
-              type="submit"
-              className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200"
-            >
-              Accéder
-            </button>
-          </form>
+      <div className="min-h-screen bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-950 dark:to-black flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-600 mx-auto mb-4"></div>
+          <p className="text-orange-700 dark:text-orange-300">Vérification de l'accès...</p>
         </div>
       </div>
     );
