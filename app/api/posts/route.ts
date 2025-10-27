@@ -17,7 +17,7 @@ const createPostSchema = z.object({
 
 export async function GET() {
   try {
-    const posts = getRecentPosts(3);
+    const posts = await getRecentPosts(3);
     return NextResponse.json(posts);
   } catch (error) {
     return NextResponse.json({ error: 'Failed to fetch posts' }, { status: 500 });
@@ -56,9 +56,9 @@ export async function POST(request: Request) {
     };
 
     // Create the post
-    const newPost = createPost(slug, postData);
+    const result = await createPost(slug, postData);
 
-    return NextResponse.json({ success: true, post: newPost }, { status: 201 });
+    return NextResponse.json({ success: result.supabaseSuccess, post: result.post }, { status: result.supabaseSuccess ? 201 : 200 });
   } catch (error) {
     console.error('Error in POST /api/posts:', error);
     if (error instanceof z.ZodError) {

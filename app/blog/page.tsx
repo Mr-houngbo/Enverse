@@ -25,9 +25,9 @@ interface BlogPageProps {
   searchParams: { tag?: string; page?: string };
 }
 
-export default function BlogPage({ searchParams }: BlogPageProps) {
-  const allPosts = getAllPosts();
-  const allTags = getAllTags();
+export default async function BlogPage({ searchParams }: BlogPageProps) {
+  const allPosts = await getAllPosts();
+  const allTags = await getAllTags();
   const selectedTag = searchParams.tag;
   const currentPage = parseInt(searchParams.page || '1');
   const postsPerPage = 6;

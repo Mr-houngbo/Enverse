@@ -15,14 +15,14 @@ interface PostPageProps {
 }
 
 export async function generateStaticParams() {
-  const posts = getAllPosts();
+  const posts = await getAllPosts();
   return posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
 export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
-  const post = getPostBySlug(params.slug);
+  const post = await getPostBySlug(params.slug);
   
   if (!post) {
     return {
@@ -54,8 +54,8 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
   };
 }
 
-export default function PostPage({ params }: PostPageProps) {
-  const post = getPostBySlug(params.slug);
+export default async function PostPage({ params }: PostPageProps) {
+  const post = await getPostBySlug(params.slug);
 
   if (!post) {
     notFound();

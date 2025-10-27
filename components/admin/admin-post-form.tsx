@@ -66,17 +66,17 @@ export function AdminPostForm({ onSuccess }: AdminPostFormProps) {
 
       const result = await response.json();
 
-      if (response.ok) {
+      if (response.ok && result.success) {
         setSubmitStatus({
           type: 'success',
-          message: 'Article publié avec succès !',
+          message: 'Article créé avec succès dans Supabase !',
         });
         reset();
         onSuccess?.();
       } else {
         setSubmitStatus({
           type: 'error',
-          message: result.error || 'Erreur lors de la publication',
+          message: result.error || 'Erreur lors de la création de l\'article dans Supabase. Sauvegardé localement.',
         });
       }
     } catch (error) {
