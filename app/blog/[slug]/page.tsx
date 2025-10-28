@@ -6,6 +6,7 @@ import { Calendar, Clock, ArrowLeft, Share2 } from 'lucide-react';
 import { LikeButton } from '@/components/blog/like-button';
 import { ShareButtons } from '@/components/blog/share-buttons';
 import { MDXContent } from '@/components/blog/mdx-content';
+import { CommentsSection } from '@/components/blog/comments-section';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
@@ -140,6 +141,9 @@ export default async function PostPage({ params }: PostPageProps) {
           </div>
         </footer>
       </article>
+
+      {/* Comments Section */}
+      <CommentsSection postSlug={post.slug} />
     </div>
   );
 }
